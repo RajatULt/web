@@ -1,0 +1,319 @@
+/* Ultra-responsive CSS with advanced optimizations */
+
+/* CSS Custom Properties for dynamic theming */
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 1920;
+  --fluid-screen: 100vw;
+  --fluid-bp: calc(
+    (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+    (var(--fluid-max-width) - var(--fluid-min-width))
+  );
+  
+  /* Fluid typography */
+  --font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
+  --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+  --font-size-lg: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+  --font-size-xl: clamp(1.56rem, 1.03vw + 1.31rem, 2.11rem);
+  --font-size-2xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+  --font-size-3xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+  
+  /* Fluid spacing */
+  --space-3xs: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
+  --space-2xs: clamp(0.5rem, 0.5rem + 0vw, 0.5rem);
+  --space-xs: clamp(0.75rem, 0.75rem + 0vw, 0.75rem);
+  --space-s: clamp(1rem, 0.95rem + 0.24vw, 1.125rem);
+  --space-m: clamp(1.5rem, 1.43rem + 0.37vw, 1.69rem);
+  --space-l: clamp(2rem, 1.91rem + 0.49vw, 2.25rem);
+  --space-xl: clamp(3rem, 2.86rem + 0.73vw, 3.38rem);
+  --space-2xl: clamp(4rem, 3.82rem + 0.98vw, 4.5rem);
+  --space-3xl: clamp(6rem, 5.73rem + 1.46vw, 6.75rem);
+  
+  /* Performance variables */
+  --animation-duration: 0.3s;
+  --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transform-gpu: translateZ(0);
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* GPU acceleration for animations */
+.gpu-accelerated {
+  will-change: transform, opacity;
+  transform: var(--transform-gpu);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Container queries for true responsive design */
+@container (min-width: 320px) {
+  .container-responsive {
+    padding: var(--space-s);
+  }
+}
+
+@container (min-width: 768px) {
+  .container-responsive {
+    padding: var(--space-m);
+  }
+}
+
+@container (min-width: 1024px) {
+  .container-responsive {
+    padding: var(--space-l);
+  }
+}
+
+/* Adaptive typography */
+.fluid-text {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+.fluid-heading {
+  font-size: var(--font-size-2xl);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Touch-optimized interactions */
+.touch-device .interactive-element {
+  min-height: 44px;
+  min-width: 44px;
+  padding: var(--space-xs) var(--space-s);
+}
+
+.no-touch .interactive-element:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* High refresh rate optimizations */
+@media (min-resolution: 120dpi) {
+  .high-refresh-animation {
+    animation-duration: calc(var(--animation-duration) * 0.8);
+  }
+}
+
+/* Network-aware loading */
+.slow-network .heavy-animation {
+  animation: none !important;
+  transition: none !important;
+}
+
+.slow-network .background-image {
+  background-image: none !important;
+}
+
+/* Battery optimization */
+.low-power-mode * {
+  animation-duration: 0.1s !important;
+  transition-duration: 0.1s !important;
+}
+
+.low-power-mode .gpu-accelerated {
+  will-change: auto;
+  transform: none;
+}
+
+/* Performance-based adjustments */
+.low-performance .complex-animation {
+  animation: none !important;
+}
+
+.medium-performance .complex-animation {
+  animation-duration: calc(var(--animation-duration) * 0.5);
+}
+
+.high-memory-usage .memory-intensive {
+  display: none !important;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Advanced responsive utilities */
+.aspect-ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-ratio-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-ratio-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+/* Fluid grid system */
+.fluid-grid {
+  display: grid;
+  gap: var(--space-m);
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+.fluid-grid-dense {
+  grid-auto-flow: dense;
+}
+
+/* Responsive images */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Touch gestures */
+.gesture-handler {
+  touch-action: pan-x pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.touch-enabled .gesture-handler {
+  cursor: grab;
+}
+
+.touch-enabled .gesture-handler:active {
+  cursor: grabbing;
+}
+
+/* Stylus support */
+.stylus-device .fine-control {
+  cursor: crosshair;
+}
+
+/* Hover states for non-touch devices */
+.no-touch .hover-effect:hover {
+  transform: scale(1.02);
+  transition: transform var(--animation-duration) var(--animation-easing);
+}
+
+/* Focus management */
+.focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Print optimizations */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break-before {
+    break-before: page;
+  }
+  
+  .print-break-after {
+    break-after: page;
+  }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .adaptive-contrast {
+    filter: contrast(1.2);
+  }
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Utility classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Loading states */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .skeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+}
