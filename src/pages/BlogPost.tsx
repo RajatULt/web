@@ -5,7 +5,7 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Facebook, Twitter, Linke
 import { blogPosts } from '../data/blog';
 import { MetaTags } from '../components/SEO/MetaTags';
 import { BlogPostSchema } from '../components/SEO/StructuredData';
-import { LazyImage } from '../components/Performance/LazyImage';
+import { OptimizedImage } from '../components/Performance/OptimizedImage';
 
 export const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -167,7 +167,7 @@ export const BlogPost: React.FC = () => {
 
           {/* Author Info */}
           <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg mb-8">
-            <LazyImage
+            <OptimizedImage
               src={post.author.avatar}
               alt={post.author.name}
               className="w-16 h-16 rounded-full mr-4"
@@ -184,7 +184,7 @@ export const BlogPost: React.FC = () => {
 
           {/* Featured Image */}
           <div className="mb-8">
-            <LazyImage
+            <OptimizedImage
               src={post.image}
               alt={post.title}
               className="w-full h-64 md:h-96 object-cover rounded-2xl"
@@ -280,7 +280,7 @@ export const BlogPost: React.FC = () => {
               >
                 <Link to={`/blog/${relatedPost.id}`}>
                   <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
-                    <LazyImage
+                    <OptimizedImage
                       src={relatedPost.image}
                       alt={relatedPost.title}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"

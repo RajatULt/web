@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Calculator, Download, Check, Zap, Star, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Calculator, Download, Check, Zap, Star } from 'lucide-react';
 
 interface PricingOption {
   id: string;
@@ -100,33 +100,44 @@ export const PricingCalculator: React.FC = () => {
 
   const generateProposal = async () => {
     setIsGenerating(true);
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000));
     setIsGenerating(false);
     setShowProposal(true);
   };
 
   const downloadProposal = () => {
-    // Create a simple PDF-like content
     const proposalContent = `
-WebStitch Project Proposal
+WebStitch - Project Proposal
+Generated on: ${new Date().toLocaleDateString()}
 
 Service: ${services.find(s => s.id === selectedService)?.name}
 Complexity: ${complexityLevels.find(c => c.id === complexity)?.name}
 Timeline: ${timeline} months
-Add-ons: ${selectedAddOns.map(id => addOns.find(a => a.id === id)?.name).join(', ')}
+Add-ons: ${selectedAddOns.length > 0 ? selectedAddOns.map(id => addOns.find(a => a.id === id)?.name).join(', ') : 'None'}
 
-Total Investment: ₹${totalPrice.toLocaleString()}
+TOTAL INVESTMENT: ₹${totalPrice.toLocaleString()}
 
-This proposal is valid for 30 days.
-Contact us at webstitchh@gmail.com for more details.
+This proposal includes:
+- Complete project development
+- Quality assurance and testing
+- 6 months of support and maintenance
+- Training and documentation
+
+Proposal valid for 30 days from generation date.
+
+Contact Information:
+Email: webstitchh@gmail.com
+Phone: +91-9899721172
+Website: https://webstitch.in
+
+Thank you for considering WebStitch for your project!
     `;
 
     const blob = new Blob([proposalContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'webstitch-proposal.txt';
+    a.download = `webstitch-proposal-${new Date().toISOString().split('T')[0]}.txt`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -134,39 +145,39 @@ Contact us at webstitchh@gmail.com for more details.
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-2xl border border-gray-100 dark:border-gray-700">
-      <div className="flex items-center mb-8">
-        <Calculator className="w-8 h-8 text-blue-600 dark:text-blue-400 mr-3" />
-        <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+      <div className="flex items-center mb-6">
+        <Calculator className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3" />
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
           Interactive Pricing Calculator
         </h3>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-2 gap-6">
         {/* Configuration Panel */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Service Selection */}
           <div>
-            <label className="block text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-3">
               Select Service
             </label>
-            <div className="grid gap-3">
+            <div className="grid gap-2">
               {services.map((service) => (
                 <motion.button
                   key={service.id}
                   onClick={() => setSelectedService(service.id)}
-                  className={`p-4 rounded-xl border-2 transition-all text-left ${
+                  className={`p-3 rounded-lg border-2 transition-all text-left text-sm ${
                     selectedService === service.id
                       ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
                       : 'border-gray-200 dark:border-gray-600 hover:border-blue-300'
                   }`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
                 >
-                  <div className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <div className="font-semibold text-gray-900 dark:text-white mb-1">
                     {service.name}
                   </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                  <div className="text-xs text-gray-600 dark:text-gray-400">
                     Starting from ₹{service.basePrice.toLocaleString()}
                   </div>
                 </motion.button>
@@ -176,23 +187,23 @@ Contact us at webstitchh@gmail.com for more details.
 
           {/* Complexity Level */}
           <div>
-            <label className="block text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-3">
               Project Complexity
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2">
               {complexityLevels.map((level) => (
                 <motion.button
                   key={level.id}
                   onClick={() => setComplexity(level.id)}
-                  className={`p-3 rounded-lg border-2 transition-all text-center ${
+                  className={`p-2 rounded-lg border-2 transition-all text-center text-sm ${
                     complexity === level.id
                       ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/20'
                       : 'border-gray-200 dark:border-gray-600 hover:border-purple-300'
                   }`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
                 >
-                  <div className="font-semibold text-gray-900 dark:text-white">
+                  <div className="font-semibold text-gray-900 dark:text-white text-sm">
                     {level.name}
                   </div>
                   <div className="text-xs text-gray-600 dark:text-gray-400">
@@ -205,7 +216,7 @@ Contact us at webstitchh@gmail.com for more details.
 
           {/* Timeline */}
           <div>
-            <label className="block text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-3">
               Timeline: {timeline} months
             </label>
             <input
@@ -216,7 +227,7 @@ Contact us at webstitchh@gmail.com for more details.
               onChange={(e) => setTimeline(Number(e.target.value))}
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
             />
-            <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mt-2">
+            <div className="flex justify-between text-xs text-gray-600 dark:text-gray-400 mt-1">
               <span>1 month</span>
               <span>12 months</span>
             </div>
@@ -224,10 +235,10 @@ Contact us at webstitchh@gmail.com for more details.
 
           {/* Add-ons */}
           <div>
-            <label className="block text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-3">
               Add-ons
             </label>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {addOns.map((addOn) => (
                 <motion.div
                   key={addOn.id}
@@ -242,19 +253,19 @@ Contact us at webstitchh@gmail.com for more details.
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="font-semibold text-gray-900 dark:text-white">
+                      <div className="font-semibold text-gray-900 dark:text-white text-sm">
                         {addOn.name}
                       </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">
+                      <div className="text-xs text-gray-600 dark:text-gray-400">
                         {addOn.description}
                       </div>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-lg font-bold text-gray-900 dark:text-white mr-3">
+                      <span className="text-sm font-bold text-gray-900 dark:text-white mr-2">
                         ₹{addOn.price.toLocaleString()}
                       </span>
                       {selectedAddOns.includes(addOn.id) && (
-                        <Check className="w-5 h-5 text-green-500" />
+                        <Check className="w-4 h-4 text-green-500" />
                       )}
                     </div>
                   </div>
@@ -266,44 +277,44 @@ Contact us at webstitchh@gmail.com for more details.
 
         {/* Summary Panel */}
         <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-6">
-          <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
             Project Summary
           </h4>
 
           {selectedService ? (
             <div className="space-y-4">
               <div className="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-600">
-                <span className="text-gray-600 dark:text-gray-400">Service:</span>
-                <span className="font-semibold text-gray-900 dark:text-white">
+                <span className="text-gray-600 dark:text-gray-400 text-sm">Service:</span>
+                <span className="font-semibold text-gray-900 dark:text-white text-sm">
                   {services.find(s => s.id === selectedService)?.name}
                 </span>
               </div>
               
               <div className="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-600">
-                <span className="text-gray-600 dark:text-gray-400">Complexity:</span>
-                <span className="font-semibold text-gray-900 dark:text-white">
+                <span className="text-gray-600 dark:text-gray-400 text-sm">Complexity:</span>
+                <span className="font-semibold text-gray-900 dark:text-white text-sm">
                   {complexityLevels.find(c => c.id === complexity)?.name}
                 </span>
               </div>
 
               <div className="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-600">
-                <span className="text-gray-600 dark:text-gray-400">Timeline:</span>
-                <span className="font-semibold text-gray-900 dark:text-white">
+                <span className="text-gray-600 dark:text-gray-400 text-sm">Timeline:</span>
+                <span className="font-semibold text-gray-900 dark:text-white text-sm">
                   {timeline} months
                 </span>
               </div>
 
               {selectedAddOns.length > 0 && (
                 <div className="py-2 border-b border-gray-200 dark:border-gray-600">
-                  <span className="text-gray-600 dark:text-gray-400 block mb-2">Add-ons:</span>
+                  <span className="text-gray-600 dark:text-gray-400 block mb-2 text-sm">Add-ons:</span>
                   {selectedAddOns.map(addOnId => {
                     const addOn = addOns.find(a => a.id === addOnId);
                     return (
                       <div key={addOnId} className="flex justify-between items-center ml-4">
-                        <span className="text-sm text-gray-600 dark:text-gray-400">
+                        <span className="text-xs text-gray-600 dark:text-gray-400">
                           {addOn?.name}
                         </span>
-                        <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                        <span className="text-xs font-semibold text-gray-900 dark:text-white">
                           ₹{addOn?.price.toLocaleString()}
                         </span>
                       </div>
@@ -318,8 +329,8 @@ Contact us at webstitchh@gmail.com for more details.
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">Total Investment:</span>
-                  <span className="text-3xl font-bold">
+                  <span className="text-sm font-semibold">Total Investment:</span>
+                  <span className="text-2xl font-bold">
                     ₹{totalPrice.toLocaleString()}
                   </span>
                 </div>
@@ -335,12 +346,12 @@ Contact us at webstitchh@gmail.com for more details.
                 >
                   {isGenerating ? (
                     <div className="flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
                       Generating Proposal...
                     </div>
                   ) : (
                     <div className="flex items-center justify-center">
-                      <Zap className="w-5 h-5 mr-2" />
+                      <Zap className="w-4 h-4 mr-2" />
                       Generate Proposal
                     </div>
                   )}
@@ -356,7 +367,7 @@ Contact us at webstitchh@gmail.com for more details.
                     whileTap={{ scale: 0.98 }}
                   >
                     <div className="flex items-center justify-center">
-                      <Download className="w-5 h-5 mr-2" />
+                      <Download className="w-4 h-4 mr-2" />
                       Download Proposal
                     </div>
                   </motion.button>
@@ -365,8 +376,8 @@ Contact us at webstitchh@gmail.com for more details.
             </div>
           ) : (
             <div className="text-center py-8">
-              <Star className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 dark:text-gray-400">
+              <Star className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
                 Select a service to see pricing details
               </p>
             </div>

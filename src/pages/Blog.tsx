@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Calendar, Clock, User, Tag, ArrowRight, Search } from 'lucide-react';
 import { blogPosts } from '../data/blog';
 import { MetaTags } from '../components/SEO/MetaTags';
-import { LazyImage } from '../components/Performance/LazyImage';
+import { OptimizedImage } from '../components/Performance/OptimizedImage';
 
 const categories = ['All', 'Web Development', 'SEO', 'DevOps', 'UI/UX Design', 'Mobile Development', 'AI & Automation', 'Blockchain', 'Cybersecurity', 'Cloud Computing'];
 
@@ -106,7 +106,7 @@ export const Blog: React.FC = () => {
                     <Link to={`/blog/${post.id}`}>
                       <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
                         <div className="relative">
-                          <LazyImage
+                          <OptimizedImage
                             src={post.image}
                             alt={post.title}
                             className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
@@ -134,7 +134,7 @@ export const Blog: React.FC = () => {
                           </p>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center">
-                              <LazyImage
+                              <OptimizedImage
                                 src={post.author.avatar}
                                 alt={post.author.name}
                                 className="w-8 h-8 rounded-full mr-3"
@@ -192,7 +192,7 @@ export const Blog: React.FC = () => {
                     <Link to={`/blog/${post.id}`}>
                       <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden h-full">
                         <div className="relative">
-                          <LazyImage
+                          <OptimizedImage
                             src={post.image}
                             alt={post.title}
                             className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
@@ -218,7 +218,7 @@ export const Blog: React.FC = () => {
                           </p>
                           <div className="flex items-center justify-between mt-auto">
                             <div className="flex items-center">
-                              <LazyImage
+                              <OptimizedImage
                                 src={post.author.avatar}
                                 alt={post.author.name}
                                 className="w-8 h-8 rounded-full mr-3"

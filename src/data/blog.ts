@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: 'progressive-web-apps-future',
     title: 'Why Progressive Web Apps Are the Future of Mobile Engagement',
-    excerpt: 'Discover how PWAs are revolutionizing mobile experiences with app-like functionality, offline capabilities, and superior performance.',
+    excerpt: 'Explore how Progressive Web Apps are transforming mobile experiences with native app functionality, offline capabilities, and lightning-fast performance that drives user engagement.',
     content: `Progressive Web Apps (PWAs) represent a paradigm shift in how we approach mobile web development. By combining the best of web and mobile app experiences, PWAs offer businesses a cost-effective way to engage users across all devices.
 
 ## What Makes PWAs Special?
@@ -236,7 +236,7 @@ These techniques have helped us reduce initial load times by up to 60% in produc
   {
     id: 'ai-automation-business-2025',
     title: 'AI Automation: Transforming Business Operations in 2025',
-    excerpt: 'Discover how AI automation is revolutionizing business processes, reducing costs by 40%, and creating new opportunities for growth and innovation.',
+    excerpt: 'Discover how AI automation is revolutionizing business processes, reducing costs by 85%, and creating unprecedented opportunities for growth and innovation.',
     content: `Artificial Intelligence automation is no longer a futuristic concept—it's reshaping how businesses operate today. From customer service to supply chain management, AI is driving unprecedented efficiency gains.
 
 ## The Current State of AI Automation

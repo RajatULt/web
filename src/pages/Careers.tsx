@@ -15,13 +15,14 @@ import {
   Award,
   Coffee,
   Zap,
-  Lightbulb
+  Lightbulb,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 import { jobPositions, companyBenefits, companyValues } from '../data/careers';
 import { JobApplicationForm } from '../components/Forms/JobApplicationForm';
 import { MetaTags } from '../components/SEO/MetaTags';
 import { JobPostingSchema } from '../components/SEO/StructuredData';
-import { LazyImage } from '../components/Performance/LazyImage';
 
 const iconMap: { [key: string]: React.ComponentType<any> } = {
   DollarSign,
@@ -76,7 +77,6 @@ export const Careers: React.FC = () => {
   const [applicationJobId, setApplicationJobId] = useState('');
   const [searchParams] = useSearchParams();
 
-  // Check if there's a job parameter in URL
   React.useEffect(() => {
     const jobId = searchParams.get('job');
     if (jobId) {
@@ -104,15 +104,15 @@ export const Careers: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Join Our Team
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
@@ -122,7 +122,7 @@ export const Careers: React.FC = () => {
           </motion.div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -131,13 +131,13 @@ export const Careers: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-4">
-                  <stat.icon className="w-8 h-8 text-white" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-3">
+                  <stat.icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
                   {stat.value}
                 </div>
-                <div className="text-gray-600 dark:text-gray-400">
+                <div className="text-sm text-gray-600 dark:text-gray-400">
                   {stat.label}
                 </div>
               </motion.div>
@@ -147,23 +147,23 @@ export const Careers: React.FC = () => {
       </section>
 
       {/* Company Values */}
-      <section className="py-20 bg-white/50 dark:bg-gray-800/50">
+      <section className="py-12 bg-white/50 dark:bg-gray-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
               Our Values
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               These principles guide everything we do and shape our company culture
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {companyValues.map((value, index) => {
               const IconComponent = iconMap[value.icon];
               return (
@@ -174,13 +174,13 @@ export const Careers: React.FC = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center group"
                 >
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform">
-                    {IconComponent && <IconComponent className="w-10 h-10 text-white" />}
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-4 group-hover:scale-110 transition-transform">
+                    {IconComponent && <IconComponent className="w-8 h-8 text-white" />}
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
                     {value.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
                     {value.description}
                   </p>
                 </motion.div>
@@ -191,23 +191,23 @@ export const Careers: React.FC = () => {
       </section>
 
       {/* Benefits */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
               Why Work With Us?
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               We believe in taking care of our team with competitive benefits and a supportive work environment
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {companyBenefits.map((benefit, index) => {
               const IconComponent = iconMap[benefit.icon];
               return (
@@ -216,15 +216,15 @@ export const Careers: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300"
+                  className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-4">
-                    {IconComponent && <IconComponent className="w-6 h-6 text-white" />}
+                  <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-4">
+                    {IconComponent && <IconComponent className="w-5 h-5 text-white" />}
                   </div>
                   <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
                     {benefit.description}
                   </p>
                 </motion.div>
@@ -233,7 +233,7 @@ export const Careers: React.FC = () => {
           </div>
 
           {/* Perks Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {perks.map((perk, index) => (
               <motion.div
                 key={perk.title}
@@ -242,13 +242,13 @@ export const Careers: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${perk.color} rounded-xl mb-4`}>
-                  <perk.icon className="w-8 h-8 text-white" />
+                <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${perk.color} rounded-xl mb-3`}>
+                  <perk.icon className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm">
                   {perk.title}
                 </h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-xs text-gray-600 dark:text-gray-400">
                   {perk.description}
                 </p>
               </motion.div>
@@ -258,29 +258,29 @@ export const Careers: React.FC = () => {
       </section>
 
       {/* Open Positions */}
-      <section className="py-20 bg-white/50 dark:bg-gray-800/50">
+      <section className="py-12 bg-white/50 dark:bg-gray-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
               Open Positions
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Find your next career opportunity and join our growing team
             </p>
           </motion.div>
 
           {/* Department Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
             {departments.map((department) => (
               <button
                 key={department}
                 onClick={() => setSelectedDepartment(department)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all ${
+                className={`px-4 py-2 rounded-full font-semibold transition-all text-sm ${
                   selectedDepartment === department
                     ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
                     : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
@@ -292,14 +292,14 @@ export const Careers: React.FC = () => {
           </div>
 
           {/* Job Listings */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {filteredJobs.map((job, index) => (
               <motion.div
                 key={job.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden"
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden"
               >
                 <JobPostingSchema
                   title={job.title}
@@ -331,7 +331,7 @@ export const Careers: React.FC = () => {
                           </span>
                         )}
                       </div>
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-3">
                         <div className="flex items-center">
                           <Briefcase className="w-4 h-4 mr-1" />
                           {job.department}
@@ -348,14 +348,33 @@ export const Careers: React.FC = () => {
                           <Users className="w-4 h-4 mr-1" />
                           {job.experience}
                         </div>
+                        {job.salaryRange && (
+                          <div className="flex items-center">
+                            <DollarSign className="w-4 h-4 mr-1" />
+                            {job.salaryRange}
+                          </div>
+                        )}
                       </div>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">
+                        {job.description}
+                      </p>
                     </div>
                     <div className="flex items-center gap-3 mt-4 md:mt-0">
                       <button
                         onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)}
-                        className="px-4 py-2 text-blue-600 dark:text-blue-400 border border-blue-600 dark:border-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+                        className="flex items-center px-3 py-2 text-blue-600 dark:text-blue-400 border border-blue-600 dark:border-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors text-sm"
                       >
-                        View Details
+                        {selectedJob === job.id ? (
+                          <>
+                            <ChevronUp className="w-4 h-4 mr-1" />
+                            Less Details
+                          </>
+                        ) : (
+                          <>
+                            <ChevronDown className="w-4 h-4 mr-1" />
+                            View Details
+                          </>
+                        )}
                       </button>
                       <button
                         onClick={() => {
@@ -363,16 +382,12 @@ export const Careers: React.FC = () => {
                           setApplicationJobTitle(job.title);
                           setShowApplicationForm(true);
                         }}
-                        className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+                        className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all text-sm font-medium"
                       >
                         Apply Now
                       </button>
                     </div>
                   </div>
-
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    {job.description}
-                  </p>
 
                   {/* Expanded Details */}
                   {selectedJob === job.id && (
@@ -382,27 +397,27 @@ export const Careers: React.FC = () => {
                       exit={{ opacity: 0, height: 0 }}
                       className="border-t border-gray-200 dark:border-gray-700 pt-6 mt-6"
                     >
-                      <div className="grid md:grid-cols-2 gap-8">
+                      <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm">
                             Requirements:
                           </h4>
                           <ul className="space-y-2 mb-6">
                             {job.requirements.map((req, idx) => (
                               <li key={idx} className="flex items-start">
-                                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                                 <span className="text-gray-600 dark:text-gray-400 text-sm">{req}</span>
                               </li>
                             ))}
                           </ul>
 
-                          <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm">
                             Responsibilities:
                           </h4>
                           <ul className="space-y-2">
                             {job.responsibilities.map((resp, idx) => (
                               <li key={idx} className="flex items-start">
-                                <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                                 <span className="text-gray-600 dark:text-gray-400 text-sm">{resp}</span>
                               </li>
                             ))}
@@ -410,13 +425,13 @@ export const Careers: React.FC = () => {
                         </div>
 
                         <div>
-                          <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm">
                             Benefits:
                           </h4>
                           <ul className="space-y-2">
                             {job.benefits.map((benefit, idx) => (
                               <li key={idx} className="flex items-start">
-                                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                                 <span className="text-gray-600 dark:text-gray-400 text-sm">{benefit}</span>
                               </li>
                             ))}
@@ -424,14 +439,14 @@ export const Careers: React.FC = () => {
                         </div>
                       </div>
 
-                      <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                      <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
                         <button
                           onClick={() => {
                             setApplicationJobId(job.id);
                             setApplicationJobTitle(job.title);
                             setShowApplicationForm(true);
                           }}
-                          className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all font-semibold"
+                          className="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all font-semibold"
                         >
                           Apply for this Position
                         </button>
@@ -446,17 +461,17 @@ export const Careers: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Don't See Your Role?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
               We're always looking for talented individuals. Send us your resume and let's talk about how you can contribute to our team.
             </p>
             <motion.div
@@ -465,7 +480,7 @@ export const Careers: React.FC = () => {
             >
               <Link
                 to="/contact?subject=General Application"
-                className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-50 transition-all shadow-lg"
+                className="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-50 transition-all shadow-lg"
               >
                 Send Your Resume
                 <ArrowRight className="ml-2 w-5 h-5" />

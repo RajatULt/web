@@ -13,8 +13,8 @@ import { Careers } from './pages/Careers';
 import { Portfolio } from './pages/Portfolio';
 import { Contact } from './pages/Contact';
 import { BlogPost } from './pages/BlogPost';
-import { ResponsiveDemo } from './pages/ResponsiveDemo';
 import { OrganizationSchema, LocalBusinessSchema } from './components/SEO/StructuredData';
+import { PerformanceMonitor } from './components/Performance/PerformanceMonitor';
 
 function App() {
   return (
@@ -34,10 +34,10 @@ function App() {
               <Route path="/careers" element={<Careers />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/responsive-demo" element={<ResponsiveDemo />} />
             </Routes>
             <Footer />
             <CookieConsent />
+            <PerformanceMonitor />
           </div>
         </Router>
       </ThemeProvider>
