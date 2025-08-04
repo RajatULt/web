@@ -1,123 +1,7 @@
-import React, { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial, Float, Sphere } from '@react-three/drei';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Play, Zap, Brain, Globe, Code2 } from 'lucide-react';
-import * as random from 'maath/random/dist/maath-random.esm';
-
-// Animated particles component
-function AnimatedParticles(props: any) {
-  const ref = useRef<any>();
-  const [sphere] = useMemo(() => [random.inSphere(new Float32Array(5000), { radius: 1.5 })], []);
-
-  useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
-    }
-  });
-
-  return (
-    <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
-        <PointMaterial
-          transparent
-          color="#3b82f6"
-          size={0.005}
-          sizeAttenuation={true}
-          depthWrite={false}
-        />
-      </Points>
-    </group>
-  );
-}
-
-// Floating geometric shapes
-function FloatingCube({ position, color, scale = 1 }: { position: [number, number, number], color: string, scale?: number }) {
-  const meshRef = useRef<any>();
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.5;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime) * 0.1;
-    }
-  });
-
-  return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-      <mesh ref={meshRef} position={position} scale={scale}>
-        <boxGeometry args={[0.2, 0.2, 0.2]} />
-        <meshStandardMaterial color={color} transparent opacity={0.8} />
-      </mesh>
-    </Float>
-  );
-}
-
-// Network connections
-function NetworkLines() {
-  const linesRef = useRef<any>();
-
-  useFrame((state) => {
-    if (linesRef.current) {
-      linesRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-    }
-  });
-
-  const points = useMemo(() => {
-    const pts = [];
-    for (let i = 0; i < 50; i++) {
-      const x = (Math.random() - 0.5) * 4;
-      const y = (Math.random() - 0.5) * 4;
-      const z = (Math.random() - 0.5) * 4;
-      pts.push(x, y, z);
-    }
-    return new Float32Array(pts);
-  }, []);
-
-  return (
-    <group ref={linesRef}>
-      <line>
-        <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            count={points.length / 3}
-            array={points}
-            itemSize={3}
-          />
-        </bufferGeometry>
-        <lineBasicMaterial color="#6366f1" transparent opacity={0.3} />
-      </line>
-    </group>
-  );
-}
-
-// Main 3D Scene
-function TechScene() {
-  return (
-    <>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={1} />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#3b82f6" />
-      
-      <AnimatedParticles />
-      
-      <FloatingCube position={[-1, 0.5, 0]} color="#3b82f6" scale={1.2} />
-      <FloatingCube position={[1, -0.5, -1]} color="#6366f1" scale={0.8} />
-      <FloatingCube position={[0.5, 1, 0.5]} color="#8b5cf6" scale={1} />
-      <FloatingCube position={[-0.8, -1, 0.8]} color="#06b6d4" scale={0.9} />
-      
-      <NetworkLines />
-      
-      <Float speed={1} rotationIntensity={0.5} floatIntensity={1}>
-        <Sphere args={[0.1, 32, 32]} position={[0, 0, 0]}>
-          <meshStandardMaterial color="#3b82f6" emissive="#1e40af" emissiveIntensity={0.5} />
-        </Sphere>
-      </Float>
-    </>
-  );
-}
+import { ArrowRight, Play, Zap, Brain, Globe, Code2, Star, CheckCircle } from 'lucide-react';
 
 export const ModernHero: React.FC = () => {
   const features = [
@@ -135,24 +19,121 @@ export const ModernHero: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-blue-500/5 to-transparent rounded-full" />
       </div>
 
+      {/* Animated Background Shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-4 h-4 bg-blue-400 rounded-full"
+          animate={{
+            y: [0, -20, 0],
+            opacity: [0.3, 1, 0.3],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute top-1/3 right-1/3 w-6 h-6 bg-purple-400 rounded-full"
+          animate={{
+            y: [0, 30, 0],
+            x: [0, 10, 0],
+            opacity: [0.4, 1, 0.4],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-cyan-400 rounded-full"
+          animate={{
+            y: [0, -15, 0],
+            x: [0, -10, 0],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5
+          }}
+        />
+        <motion.div
+          className="absolute top-2/3 right-1/4 w-5 h-5 bg-green-400 rounded-full"
+          animate={{
+            y: [0, 25, 0],
+            opacity: [0.3, 0.8, 0.3],
+          }}
+          transition={{
+            duration: 3.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
           
-          {/* Left Side - 3D Animation */}
+          {/* Left Side - Animated Visual */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative h-[600px] lg:h-[700px]"
+            className="relative h-[600px] lg:h-[700px] flex items-center justify-center"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl backdrop-blur-sm border border-white/10" />
-            <Canvas
-              camera={{ position: [0, 0, 3], fov: 60 }}
-              className="rounded-3xl"
-              dpr={[1, 2]}
-            >
-              <TechScene />
-            </Canvas>
+            <div className="relative">
+              {/* Central Logo/Icon */}
+              <motion.div
+                className="w-64 h-64 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full backdrop-blur-sm border border-white/10 flex items-center justify-center"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                }}
+              >
+                <motion.div
+                  className="w-32 h-32 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center"
+                  animate={{
+                    rotate: [0, -360],
+                  }}
+                  transition={{
+                    duration: 15,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                >
+                  <Brain className="w-16 h-16 text-white" />
+                </motion.div>
+              </motion.div>
+
+              {/* Orbiting Elements */}
+              <motion.div
+                className="absolute inset-0 w-64 h-64"
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                  <Code2 className="w-4 h-4 text-white" />
+                </div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                  <Globe className="w-4 h-4 text-white" />
+                </div>
+                <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
+                  <Zap className="w-4 h-4 text-white" />
+                </div>
+                <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                  <Star className="w-4 h-4 text-white" />
+                </div>
+              </motion.div>
+            </div>
             
             {/* Floating UI Elements */}
             <motion.div
