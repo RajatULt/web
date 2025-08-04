@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, MessageCircle, Clock, Shield, Zap, Brain, Target, Award, ArrowRight } from 'lucide-react';
+import { DollarSign, Smartphone, Settings } from 'lucide-react';
 
 interface FAQItem {
   id: string;
@@ -14,44 +15,62 @@ const faqData: FAQItem[] = [
   {
     id: '1',
     question: 'How quickly can you implement AI automation in our business?',
-    answer: 'Most AI automation projects can be implemented within 4-8 weeks, depending on complexity. We start with a comprehensive analysis of your current processes, then develop and deploy custom AI solutions. Simple automation can be live within 2 weeks, while complex enterprise solutions may take 8-12 weeks.',
+    answer: 'Most AI automation projects can be implemented within 4-12 weeks, depending on complexity. We start with a comprehensive analysis of your current processes, then develop and deploy custom AI solutions. Simple automation can be live within 2-3 weeks, while complex enterprise solutions may take 8-16 weeks. Our agile methodology ensures you see results quickly with iterative deployments.',
     category: 'Implementation'
   },
   {
     id: '2',
     question: 'What kind of ROI can we expect from AI automation?',
-    answer: 'Our clients typically see 200-400% ROI within the first year. This comes from 85% reduction in manual processing time, 94% error reduction, and significant cost savings. We provide detailed ROI projections during our consultation and track performance metrics post-implementation.',
+    answer: 'Our clients typically see 300-500% ROI within the first year. This comes from 85% reduction in manual processing time, 94% error reduction, and significant cost savings. Enterprise clients often save ₹50 lakhs to ₹2 crores annually. We provide detailed ROI projections during our consultation and track performance metrics post-implementation.',
     category: 'ROI'
   },
   {
     id: '3',
     question: 'Do you provide ongoing support and maintenance?',
-    answer: 'Yes, we offer comprehensive support packages including 24/7 monitoring, regular updates, performance optimization, and dedicated support team. Our standard package includes 6 months of support, with extended options available.',
+    answer: 'Yes, we offer comprehensive support packages including 24/7 monitoring, regular updates, performance optimization, and dedicated support team. Our standard package includes 6 months of support, with extended options up to 3 years. We also provide training, documentation, and knowledge transfer to your team.',
     category: 'Support'
   },
   {
     id: '4',
     question: 'Can AI automation integrate with our existing systems?',
-    answer: 'Absolutely. Our AI solutions are designed to seamlessly integrate with existing ERP, CRM, databases, and third-party applications. We use APIs, webhooks, and custom connectors to ensure smooth data flow and minimal disruption to your current operations.',
+    answer: 'Absolutely. Our AI solutions are designed to seamlessly integrate with existing ERP, CRM, databases, and third-party applications. We use APIs, webhooks, and custom connectors to ensure smooth data flow and minimal disruption to your current operations. We support 200+ popular business applications and can create custom integrations.',
     category: 'Integration'
   },
   {
     id: '5',
     question: 'How secure are your AI solutions?',
-    answer: 'Security is our top priority. We implement enterprise-grade encryption, secure data handling, compliance with GDPR/CCPA, regular security audits, and follow industry best practices. All data processing can be done on-premises or in secure cloud environments.',
+    answer: 'Security is our top priority. We implement enterprise-grade encryption, secure data handling, compliance with GDPR/CCPA/SOC2, regular security audits, and follow industry best practices. All data processing can be done on-premises or in secure cloud environments. We maintain ISO 27001 certification and conduct quarterly security assessments.',
     category: 'Security'
   },
   {
     id: '6',
     question: 'What industries do you specialize in?',
-    answer: 'We work across multiple industries including finance, healthcare, manufacturing, retail, logistics, and professional services. Our AI solutions are customized for each industry\'s specific requirements, compliance needs, and operational challenges.',
+    answer: 'We work across multiple industries including finance, healthcare, manufacturing, retail, logistics, education, and professional services. Our AI solutions are customized for each industry\'s specific requirements, compliance needs, and operational challenges. We have deep expertise in fintech, healthtech, edtech, and e-commerce sectors.',
     category: 'Industries'
   },
   {
     id: '7',
     question: 'How do you ensure AI accuracy and reliability?',
-    answer: 'We achieve 99.7% accuracy through rigorous testing, continuous learning algorithms, human-in-the-loop validation, and comprehensive quality assurance. Our AI models are trained on high-quality data and continuously monitored for performance optimization.',
+    answer: 'We achieve 99.7% accuracy through rigorous testing, continuous learning algorithms, human-in-the-loop validation, and comprehensive quality assurance. Our AI models are trained on high-quality data and continuously monitored for performance optimization. We use A/B testing, model versioning, and automated monitoring to maintain peak performance.',
     category: 'Quality'
+  },
+  {
+    id: '8',
+    question: 'What is your pricing structure for different services?',
+    answer: 'Our pricing is transparent and value-based. AI solutions start from ₹1.5 lakhs, web development from ₹75,000, mobile apps from ₹2 lakhs, and automation projects from ₹1.2 lakhs. Enterprise solutions range from ₹5-50 lakhs depending on scope. We offer flexible payment terms and provide detailed cost breakdowns upfront.',
+    category: 'Pricing'
+  },
+  {
+    id: '9',
+    question: 'Do you offer mobile app development for both iOS and Android?',
+    answer: 'Yes, we develop native iOS and Android apps as well as cross-platform solutions using React Native and Flutter. Our mobile apps include AI features, real-time synchronization, push notifications, and seamless backend integration. We handle the entire process from design to app store deployment.',
+    category: 'Mobile'
+  },
+  {
+    id: '10',
+    question: 'How do you handle project management and communication?',
+    answer: 'We use agile methodology with weekly sprints and regular client updates. You\'ll have access to a dedicated project manager, real-time project dashboard, and scheduled review meetings. We use tools like Slack, Jira, and Figma for seamless collaboration and transparency throughout the development process.',
+    category: 'Process'
   }
 ];
 
@@ -69,7 +88,10 @@ export const ModernFAQ: React.FC = () => {
     Integration: Zap,
     Security: Shield,
     Industries: Award,
-    Quality: Brain
+    Quality: Brain,
+    Pricing: DollarSign,
+    Mobile: Smartphone,
+    Process: Settings
   };
 
   return (

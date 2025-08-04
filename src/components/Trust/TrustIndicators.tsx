@@ -14,14 +14,14 @@ import {
 const trustMetrics = [
   {
     icon: Users,
-    value: '50+',
+    value: '75+',
     label: 'Happy Clients',
     description: 'Across various industries',
     color: 'from-blue-500 to-cyan-500'
   },
   {
     icon: Award,
-    value: '150+',
+    value: '200+',
     label: 'Projects Delivered',
     description: 'Successfully completed',
     color: 'from-purple-500 to-pink-500'
@@ -35,7 +35,7 @@ const trustMetrics = [
   },
   {
     icon: TrendingUp,
-    value: '98%',
+    value: '99.5%',
     label: 'Success Rate',
     description: 'Project completion',
     color: 'from-green-500 to-blue-500'

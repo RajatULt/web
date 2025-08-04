@@ -116,10 +116,10 @@ export const CompactAIShowcase: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-            AI-Powered Business Transformation
+            Enterprise AI Solutions That Deliver Results
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Experience next-generation artificial intelligence that revolutionizes how businesses operate
+            Experience next-generation artificial intelligence and automation that revolutionizes how businesses operate, with proven ROI and measurable results
           </p>
         </motion.div>
 
@@ -284,19 +284,19 @@ export const CompactAIShowcase: React.FC = () => {
           viewport={{ once: true }}
           className="mt-20 bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-8 text-white text-center"
         >
-          <h3 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h3>
+          <h3 className="text-3xl font-bold mb-6">Ready to Implement AI in Your Business?</h3>
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div className="flex items-center justify-center space-x-3">
               <Clock className="w-8 h-8 text-blue-200" />
               <div>
-                <div className="text-3xl font-bold">4-8 Weeks</div>
+                <div className="text-3xl font-bold">6-12 Weeks</div>
                 <div className="text-blue-200">Implementation Time</div>
               </div>
             </div>
             <div className="flex items-center justify-center space-x-3">
               <Target className="w-8 h-8 text-purple-200" />
               <div>
-                <div className="text-3xl font-bold">340% ROI</div>
+                <div className="text-3xl font-bold">450% ROI</div>
                 <div className="text-purple-200">Average Return</div>
               </div>
             </div>

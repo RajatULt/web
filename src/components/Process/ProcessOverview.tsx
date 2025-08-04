@@ -101,10 +101,10 @@ export const ProcessOverview: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-            Our Proven AI Implementation Process
+            Our Proven Development & AI Implementation Process
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            A systematic approach that ensures successful AI transformation with measurable results
+            A systematic approach that ensures successful project delivery and AI transformation with measurable results
           </p>
         </motion.div>
 

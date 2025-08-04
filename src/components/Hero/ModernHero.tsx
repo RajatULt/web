@@ -5,9 +5,9 @@ import { ArrowRight, Play, Zap, Brain, Globe, Code2, Star, CheckCircle } from 'l
 
 export const ModernHero: React.FC = () => {
   const features = [
-    { icon: Brain, text: 'AI-Powered Solutions' },
-    { icon: Code2, text: 'Custom Development' },
-    { icon: Globe, text: 'Global Reach' }
+    { icon: Brain, text: 'AI & Machine Learning' },
+    { icon: Zap, text: 'Process Automation' },
+    { icon: Code2, text: 'Web & Mobile Development' }
   ];
 
   return (
@@ -204,11 +204,11 @@ export const ModernHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-lg lg:text-xl text-gray-300 leading-relaxed max-w-2xl"
             >
-              Leading AI & automation solutions company transforming businesses with 
+              Leading AI & automation solutions company in Greater Noida transforming businesses with 
               <span className="text-blue-400 font-semibold"> intelligent systems</span>, 
               <span className="text-purple-400 font-semibold"> cutting-edge technology</span>, and 
               <span className="text-cyan-400 font-semibold"> exceptional design</span>. 
-              We deliver 99.7% accuracy with 85% efficiency gains.
+              We deliver enterprise-grade solutions with 99.7% accuracy and 85% efficiency gains.
             </motion.div>
 
             {/* Features */}
@@ -275,8 +275,8 @@ export const ModernHero: React.FC = () => {
               className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10"
             >
               {[
-                { value: '150+', label: 'Projects' },
-                { value: '50+', label: 'Clients' },
+                { value: '200+', label: 'Projects' },
+                { value: '75+', label: 'Clients' },
                 { value: '99.7%', label: 'Accuracy' }
               ].map((stat, index) => (
                 <motion.div

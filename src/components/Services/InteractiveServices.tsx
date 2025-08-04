@@ -13,7 +13,8 @@ import {
   Users,
   Award,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Cloud
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -38,7 +39,7 @@ const services: Service[] = [
   {
     id: 'ai-solutions',
     title: 'AI Solutions & Machine Learning',
-    description: 'Custom AI systems that learn, adapt, and optimize your business operations automatically with 99.7% accuracy.',
+    description: 'Enterprise-grade AI systems that revolutionize business operations with advanced machine learning, predictive analytics, and intelligent automation achieving 99.7% accuracy.',
     shortDescription: 'Intelligent AI systems with 99.7% accuracy',
     icon: Brain,
     features: [
@@ -47,7 +48,9 @@ const services: Service[] = [
       'Natural language processing',
       'Computer vision & image recognition',
       'Intelligent automation workflows',
-      'Real-time data processing'
+      'Real-time data processing',
+      'Deep learning neural networks',
+      'AI-powered decision engines'
     ],
     technologies: ['TensorFlow', 'PyTorch', 'OpenAI GPT', 'Python', 'CUDA', 'Hugging Face'],
     stats: [
@@ -67,7 +70,7 @@ const services: Service[] = [
   {
     id: 'automation',
     title: 'Intelligent Process Automation',
-    description: 'AI-driven automation that handles complex workflows and scales with your business growth.',
+    description: 'Revolutionary AI-driven automation that transforms complex business workflows, eliminates manual tasks, and scales intelligently with your organization.',
     shortDescription: 'AI-driven automation with 85% time savings',
     icon: Zap,
     features: [
@@ -76,7 +79,9 @@ const services: Service[] = [
       'Document processing & extraction',
       'API integration & connectivity',
       'Performance monitoring',
-      'Intelligent task routing'
+      'Intelligent task routing',
+      'Business rule engines',
+      'Exception handling systems'
     ],
     technologies: ['UiPath', 'Automation Anywhere', 'Python', 'Zapier', 'Microsoft Power Automate', 'Node.js'],
     stats: [
@@ -95,8 +100,8 @@ const services: Service[] = [
   },
   {
     id: 'web-development',
-    title: 'Next-Gen Web Applications',
-    description: 'Modern web applications with AI integration, stunning design, and exceptional performance.',
+    title: 'Premium Web Development',
+    description: 'Enterprise-grade web applications with cutting-edge technology, AI integration, stunning design, and lightning-fast performance that drives business growth.',
     shortDescription: 'High-performance web apps with AI integration',
     icon: Globe,
     features: [
@@ -105,7 +110,9 @@ const services: Service[] = [
       'Advanced animations & interactions',
       'SEO optimization & performance',
       'Cloud integration & scalability',
-      'Real-time features & APIs'
+      'Real-time features & APIs',
+      'E-commerce platforms',
+      'Content management systems'
     ],
     technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'GraphQL'],
     stats: [
@@ -120,6 +127,68 @@ const services: Service[] = [
       'Mobile-first design',
       'SEO optimized',
       'Scalable architecture'
+    ]
+  },
+  {
+    id: 'mobile-development',
+    title: 'Mobile App Development',
+    description: 'Native and cross-platform mobile applications with AI capabilities, seamless user experiences, and robust backend integration.',
+    shortDescription: 'AI-powered mobile apps for iOS & Android',
+    icon: Smartphone,
+    features: [
+      'Native iOS & Android development',
+      'Cross-platform solutions',
+      'AI-powered features',
+      'Real-time synchronization',
+      'Push notifications',
+      'Offline functionality',
+      'App store optimization',
+      'Backend API integration'
+    ],
+    technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase', 'AWS'],
+    stats: [
+      { label: 'App Store Rating', value: '4.8/5' },
+      { label: 'Download Rate', value: '+200%' },
+      { label: 'User Retention', value: '85%' }
+    ],
+    color: 'from-green-500 to-teal-500',
+    category: 'Mobile',
+    benefits: [
+      'Cross-platform compatibility',
+      'Native performance',
+      'AI-enhanced features',
+      'Seamless user experience'
+    ]
+  },
+  {
+    id: 'cloud-solutions',
+    title: 'Cloud Infrastructure & DevOps',
+    description: 'Scalable cloud solutions with automated deployment, monitoring, and optimization for maximum performance and reliability.',
+    shortDescription: 'Enterprise cloud solutions with 99.9% uptime',
+    icon: Cloud,
+    features: [
+      'Cloud architecture design',
+      'DevOps automation',
+      'Container orchestration',
+      'Monitoring & alerting',
+      'Security implementation',
+      'Performance optimization',
+      'Disaster recovery',
+      'Cost optimization'
+    ],
+    technologies: ['AWS', 'Azure', 'GCP', 'Docker', 'Kubernetes', 'Terraform'],
+    stats: [
+      { label: 'Uptime', value: '99.9%' },
+      { label: 'Cost Savings', value: '40%' },
+      { label: 'Deploy Speed', value: '10x' }
+    ],
+    color: 'from-indigo-500 to-purple-500',
+    category: 'Cloud',
+    benefits: [
+      'Scalable infrastructure',
+      'Automated deployments',
+      'Cost optimization',
+      'High availability'
     ]
   }
 ];
@@ -311,17 +380,17 @@ export const InteractiveServices: React.FC = () => {
 
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Transform Your Business?
+                Ready to Transform Your Business with AI?
               </h3>
               <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                Join 50+ successful companies that have revolutionized their operations with our AI solutions
+                Join 75+ successful companies that have revolutionized their operations with our AI solutions and intelligent automation
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
                 <div className="flex items-center space-x-8 text-blue-100">
                   <div className="flex items-center space-x-2">
                     <Users className="w-5 h-5" />
-                    <span>50+ Clients</span>
+                    <span>75+ Clients</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Star className="w-5 h-5 text-yellow-400" />
@@ -329,7 +398,7 @@ export const InteractiveServices: React.FC = () => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <Award className="w-5 h-5" />
-                    <span>150+ Projects</span>
+                    <span>200+ Projects</span>
                   </div>
                 </div>
               </div>
@@ -343,7 +412,7 @@ export const InteractiveServices: React.FC = () => {
                   className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-2xl font-bold text-lg hover:bg-gray-50 transition-all shadow-2xl"
                 >
                   <Brain className="w-6 h-6 mr-3" />
-                  Start Your AI Transformation
+                  Get Free AI Consultation
                   <ArrowRight className="ml-3 w-5 h-5" />
                 </Link>
               </motion.div>

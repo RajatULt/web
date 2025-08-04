@@ -364,9 +364,10 @@ export const ModernContact: React.FC = () => {
                       >
                         <option value="">Select project type</option>
                         <option value="ai-solutions">AI Solutions</option>
+                        <option value="process-automation">Process Automation</option>
                         <option value="web-development">Web Development</option>
                         <option value="mobile-app">Mobile App</option>
-                        <option value="automation">Process Automation</option>
+                        <option value="cloud-solutions">Cloud Solutions</option>
                         <option value="consulting">Consulting</option>
                         <option value="other">Other</option>
                       </select>
@@ -384,11 +385,11 @@ export const ModernContact: React.FC = () => {
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     >
                       <option value="">Select budget range</option>
-                      <option value="10k-25k">₹10,000 - ₹25,000</option>
-                      <option value="25k-50k">₹25,000 - ₹50,000</option>
                       <option value="50k-100k">₹50,000 - ₹1,00,000</option>
                       <option value="100k-250k">₹1,00,000 - ₹2,50,000</option>
-                      <option value="250k+">₹2,50,000+</option>
+                      <option value="250k-500k">₹2,50,000 - ₹5,00,000</option>
+                      <option value="500k-1000k">₹5,00,000 - ₹10,00,000</option>
+                      <option value="1000k+">₹10,00,000+</option>
                     </select>
                   </div>
 

@@ -43,9 +43,9 @@ const iconMap: { [key: string]: React.ComponentType<any> } = {
 };
 
 const stats = [
-  { label: 'Projects Completed', value: '150+', icon: Award },
-  { label: 'Happy Clients', value: '50+', icon: Users },
-  { label: 'Success Rate', value: '98%', icon: TrendingUp },
+  { label: 'Projects Completed', value: '200+', icon: Award },
+  { label: 'Happy Clients', value: '75+', icon: Users },
+  { label: 'Success Rate', value: '99.5%', icon: TrendingUp },
   { label: 'Average Rating', value: '4.9/5', icon: Star }
 ];
 

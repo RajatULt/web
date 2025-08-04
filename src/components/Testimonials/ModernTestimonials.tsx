@@ -229,7 +229,7 @@ export const ModernTestimonials: React.FC = () => {
             <h3 className="text-3xl md:text-4xl font-bold mb-8">Join Our Success Stories</h3>
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <motion.div className="text-center" whileHover={{ scale: 1.05 }}>
-                <div className="text-5xl font-bold mb-2">98%</div>
+                <div className="text-5xl font-bold mb-2">99.5%</div>
                 <div className="text-blue-100 flex items-center justify-center">
                   <Users className="w-4 h-4 mr-2" />
                   Client Satisfaction Rate

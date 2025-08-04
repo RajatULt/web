@@ -70,4 +70,34 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     featured: false
   }
+  },
+  {
+    id: 'testimonial-7',
+    name: 'Arjun Mehta',
+    role: 'Founder & CEO',
+    company: 'TechStart Solutions',
+    content: 'WebStitch developed our mobile app with AI-powered features that increased user engagement by 300%. The app store ratings improved from 3.2 to 4.8 stars. Their expertise in mobile AI integration is unmatched.',
+    avatar: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
+    rating: 5,
+    featured: true
+  },
+  {
+    id: 'testimonial-8',
+    name: 'Meera Gupta',
+    role: 'VP Technology',
+    company: 'CloudFirst Enterprises',
+    content: 'The cloud migration and DevOps automation WebStitch implemented reduced our deployment time from 6 hours to 15 minutes. Infrastructure costs decreased by 45% while improving reliability to 99.9% uptime.',
+    avatar: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400',
+    rating: 5,
+    featured: true
+  },
+  {
+    id: 'testimonial-9',
+    name: 'Vikram Singh',
+    role: 'Operations Head',
+    company: 'AutoManufacturing Ltd',
+    content: 'The intelligent process automation solution handles 15,000+ daily transactions with 99.5% accuracy. Quality control processes that took 4 hours now complete in 20 minutes. ROI achieved in just 3 months.',
+    avatar: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+    rating: 5,
+    featured: false
 ];

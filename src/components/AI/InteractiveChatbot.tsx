@@ -60,9 +60,9 @@ const predefinedResponses = [
   {
     keywords: ['price', 'cost', 'pricing', 'budget', 'quote', 'estimate'],
     responses: [
-      "Our pricing is transparent and value-based. AI automation projects typically range from ₹50,000 for basic solutions to ₹5,00,000+ for enterprise systems. Most clients achieve ROI within 6-12 months through efficiency gains. Would you like a custom quote based on your specific needs?",
-      "We offer flexible pricing packages: Basic automation starts at ₹25,000, Advanced AI solutions from ₹1,00,000, and Enterprise systems from ₹2,50,000+. All projects include implementation, training, and 6-month support. Shall I connect you with our team for a detailed quote?",
-      "Investment in our AI and automation solutions typically pays for itself within 4-8 months. We provide transparent pricing with no hidden costs. Our interactive pricing calculator can give you an instant estimate, or I can schedule a consultation for a detailed proposal."
+      "Our pricing is transparent and value-based. AI automation projects typically range from ₹1,50,000 for basic solutions to ₹50,00,000+ for enterprise systems. Most clients achieve ROI within 4-8 months through efficiency gains. Would you like a custom quote based on your specific needs?",
+      "We offer flexible pricing packages: Web development starts at ₹75,000, Mobile apps from ₹2,00,000, AI solutions from ₹1,50,000, and Enterprise automation from ₹5,00,000+. All projects include implementation, training, and 6-month support. Shall I connect you with our team for a detailed quote?",
+      "Investment in our AI and automation solutions typically pays for itself within 3-6 months. We provide transparent pricing with no hidden costs. Our interactive pricing calculator can give you an instant estimate, or I can schedule a consultation for a detailed proposal."
     ],
     quickReplies: [
       { id: 'calculator', text: 'Use pricing calculator' },
@@ -108,12 +108,12 @@ const predefinedResponses = [
 ];
 
 const quickActions = [
-  { id: 'ai-solutions', text: "AI Solutions", action: null },
+  { id: 'ai-solutions', text: "AI & ML Solutions", action: null },
   { id: 'automation', text: "Process Automation", action: null },
+  { id: 'web-development', text: "Web Development", action: null },
+  { id: 'mobile-apps', text: "Mobile Apps", action: null },
   { id: 'pricing', text: "Pricing Calculator", action: null },
-  { id: 'demo', text: "Schedule Demo", action: null },
-  { id: 'contact', text: "Contact Team", action: null },
-  { id: 'portfolio', text: "View Portfolio", action: null }
+  { id: 'contact', text: "Contact Team", action: null }
 ];
 
 export const InteractiveChatbot: React.FC = () => {
@@ -448,12 +448,12 @@ export const InteractiveChatbot: React.FC = () => {
           {/* Quick Replies */}
           {currentQuickReplies.length > 0 && (
             <div className="px-4 py-2 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-              <div className="flex flex-wrap gap-2">
-                {currentQuickReplies.map((reply) => (
+              <div className="grid grid-cols-2 gap-2 mb-2">
+                {quickActions.slice(0, 4).map((action) => (
                   <motion.button
                     key={reply.id}
                     onClick={() => handleQuickReply(reply)}
-                    className="text-xs px-3 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors border border-blue-200 dark:border-blue-800"
+                    className="text-xs px-2 py-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 text-blue-600 dark:text-blue-400 rounded-lg hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-900/40 dark:hover:to-purple-900/40 transition-all border border-blue-200 dark:border-blue-800 text-center"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, y: 10 }}
@@ -461,6 +461,22 @@ export const InteractiveChatbot: React.FC = () => {
                     transition={{ delay: 0.1 }}
                   >
                     {reply.text}
+                  </motion.button>
+                ))}
+              </div>
+              <div className="flex justify-center gap-2">
+                {quickActions.slice(4).map((action) => (
+                  <motion.button
+                    key={action.id}
+                    onClick={() => {
+                      handleUserInteraction();
+                      handleSendMessage(action.text);
+                    }}
+                    className="text-xs px-3 py-1 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 text-green-600 dark:text-green-400 rounded-full hover:from-green-100 hover:to-blue-100 dark:hover:from-green-900/40 dark:hover:to-blue-900/40 transition-all border border-green-200 dark:border-green-800"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {action.text}
                   </motion.button>
                 ))}
               </div>

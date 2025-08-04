@@ -21,31 +21,40 @@ const services: PricingOption[] = [
   {
     id: 'ai-solution',
     name: 'AI Solution',
-    basePrice: 50000,
+    basePrice: 150000,
     features: ['Custom AI Model', 'Data Processing', 'API Integration', '6 Months Support'],
     multiplier: 1.5
   },
   {
     id: 'mobile-app',
     name: 'Mobile App',
-    basePrice: 80000,
+    basePrice: 200000,
     features: ['iOS & Android', 'Custom Design', 'Backend Integration', '1 Year Support'],
     multiplier: 1.2
   },
   {
     id: 'website',
     name: 'Website Development',
-    basePrice: 25000,
+    basePrice: 75000,
     features: ['Responsive Design', 'CMS Integration', 'SEO Optimization', '6 Months Support'],
     multiplier: 1.0
+  },
+  {
+    id: 'automation',
+    name: 'Process Automation',
+    basePrice: 120000,
+    features: ['Workflow Automation', 'RPA Implementation', 'System Integration', '6 Months Support'],
+    multiplier: 1.3
   }
 ];
 
 const addOns: AddOn[] = [
-  { id: 'analytics', name: 'Advanced Analytics', price: 15000, description: 'Real-time data insights' },
-  { id: 'maintenance', name: 'Extended Maintenance', price: 20000, description: '2 years additional support' },
-  { id: 'training', name: 'Team Training', price: 10000, description: 'Comprehensive team onboarding' },
-  { id: 'security', name: 'Security Audit', price: 12000, description: 'Complete security assessment' }
+  { id: 'analytics', name: 'Advanced Analytics', price: 45000, description: 'Real-time data insights & AI-powered reporting' },
+  { id: 'maintenance', name: 'Extended Maintenance', price: 60000, description: '2 years premium support & updates' },
+  { id: 'training', name: 'Team Training', price: 35000, description: 'Comprehensive team onboarding & workshops' },
+  { id: 'security', name: 'Security Audit', price: 40000, description: 'Complete security assessment & penetration testing' },
+  { id: 'cloud', name: 'Cloud Migration', price: 80000, description: 'Full cloud infrastructure setup & migration' },
+  { id: 'ai-integration', name: 'AI Integration', price: 100000, description: 'Custom AI features & machine learning models' }
 ];
 
 const complexityLevels = [

@@ -36,29 +36,29 @@ export const ConversionOptimizedCTA: React.FC<CTAProps> = ({
   ];
 
   const benefits = [
-    'Free 30-minute consultation with AI experts',
-    'Custom automation strategy for your business',
+    'Free 60-minute consultation with AI experts',
+    'Custom AI & automation strategy for your business',
     'ROI projection and implementation roadmap',
-    'No obligation - just valuable insights'
+    'No obligation - just valuable insights and recommendations'
   ];
 
   const urgencyElements = {
     primary: {
       badge: 'Limited Time Offer',
-      title: 'Ready to Scale Your Business?',
-      subtitle: 'Join 50+ successful companies transforming their operations with our solutions',
+      title: 'Ready to Transform Your Business with AI?',
+      subtitle: 'Join 50+ successful companies revolutionizing their operations with our AI solutions and intelligent automation',
       cta: 'Get Free Strategy Consultation'
     },
     secondary: {
       badge: 'Proven Results',
-      title: 'Accelerate Your Digital Transformation',
-      subtitle: 'Discover how technology can revolutionize your business operations',
+      title: 'Accelerate Your AI Transformation',
+      subtitle: 'Discover how AI and automation can revolutionize your business operations and drive unprecedented growth',
       cta: 'Schedule Demo'
     },
     urgent: {
       badge: 'Act Now - Save 30%',
       title: 'Limited Spots Available',
-      subtitle: 'Limited spots available for Q1 2025 implementation',
+      subtitle: 'Limited spots available for Q1 2025 AI implementation projects',
       cta: 'Claim Your Spot'
     }
   };
